@@ -1,0 +1,12 @@
+[Unit]
+Description=Kaia Multi-Site Web Service (Yoga & Workout)
+After=network.target
+
+[Service]
+WorkingDirectory=/home/honweng/.openclaw/workspace
+ExecStart=/usr/bin/python3 /home/honweng/.openclaw/workspace/server.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=Kaia Post-Boot Telegram Notification
+After=network.target network-online.target kaia-yoga.service kaia-tunnel.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/honweng/.openclaw/workspace
+ExecStart=/usr/bin/python3 /home/honweng/.openclaw/workspace/boot_notify.py
+RemainAfterExit=no
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>45-Min Dumbbell Workout (Prescriptive Guide)</title>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --subcard-bg: #0f172a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --accent-warmup: #06b6d4;
+            --accent-lower: #10b981;
+            --accent-push: #f59e0b;
+            --accent-pull: #8b5cf6;
+            --accent-finish: #ef4444;
+            --cue-setup: #38bdf8;
+            --cue-tempo: #fbbf24;
+            --cue-breath: #a78bfa;
+            --cue-fault: #f87171;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin: 0 0 0.5rem 0;
+            background: linear-gradient(135deg, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2.5rem 0 1.25rem 0;
+        }
+
+        .phase-badge {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .phase-0 { background: rgba(6, 182, 212, 0.15); color: var(--accent-warmup); border: 1px solid rgba(6, 182, 212, 0.4); }
+        .phase-1 { background: rgba(16, 185, 129, 0.15); color: var(--accent-lower); border: 1px solid rgba(16, 185, 129, 0.4); }
+        .phase-2 { background: rgba(245, 158, 11, 0.15); color: var(--accent-push); border: 1px solid rgba(245, 158, 11, 0.4); }
+        .phase-3 { background: rgba(139, 92, 246, 0.15); color: var(--accent-pull); border: 1px solid rgba(139, 92, 246, 0.4); }
+        .phase-4 { background: rgba(239, 68, 68, 0.15); color: var(--accent-finish); border: 1px solid rgba(239, 68, 68, 0.4); }
+
+        .exercise-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .exercise-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .prescription {
+            font-weight: 700;
+            color: var(--cue-tempo);
+            background: rgba(251, 191, 36, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            border: 1px solid rgba(251, 191, 36, 0.25);
+            font-size: 0.9rem;
+        }
+
+        .target-bar {
+            color: #38bdf8;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .grid-cues {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .cue-box {
+            background: var(--subcard-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.85rem;
+            font-size: 0.9rem;
+        }
+
+        .cue-label {
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .label-setup { color: var(--cue-setup); }
+        .label-execution { color: #4ade80; }
+        .label-tempo { color: var(--cue-tempo); }
+        .label-breath { color: var(--cue-breath); }
+        .label-faults { color: var(--cue-fault); }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>45-Minute Dumbbell Prescription Plan</h1>
+            <p>Precise Biomechanical Protocols & Execution Standards • HonWeng 🦊</p>
+        </header>
+
+        <!-- Phase 0: Warmup -->
+        <div class="section-header">
+            <span class="phase-badge phase-0">Phase 0: Yoga Mobility (5 Mins)</span>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">1. Child's Pose (Balasana)</h3>
+                <span class="prescription">1 Min Continuous</span>
+            </div>
+            <div class="target-bar">🎯 Target: Lumbar Decompression, Lat Stretch, Diaphragmatic Breath</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Position</span>
+                    Knees wide (mat-width), big toes touching. Sink hips back directly onto heels. Walk hands forward until arms are fully elongated.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Rest forehead on mat. Actively press palms into floor to push hips deeper onto heels. Creep fingertips forward 1 inch every 20 seconds.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing Pattern</span>
+                    4-second inhale expanding the lower ribs and lower back 360°; 6-second slow nasal exhale letting chest sink towards the floor.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-faults">Common Faults to Avoid</span>
+                    Lifting hips off heels; shrugging shoulders up into ears; shallow chest-only breathing.
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">2. Cat-Cow Segmented Flow</h3>
+                <span class="prescription">1 Min (10 Full Cycles)</span>
+            </div>
+            <div class="target-bar">🎯 Target: Segmental Spinal Mobility & Pelvic Tilt Coordination</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Position</span>
+                    Quadruped position: Wrists directly under shoulders, knees directly under hips. Neutral neck, fingers spread wide for wrist support.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    <strong>Cow:</strong> Inhale, tilt pelvis anteriorly, drop belly, pull chest through shoulders, look slightly forward.<br>
+                    <strong>Cat:</strong> Exhale, tuck tailbone first, dome upper back toward ceiling, press floor away with palms.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-tempo">Tempo & Cadence</span>
+                    3 seconds Cow (inhale) → 1 second pause → 3 seconds Cat (exhale) → 1 second hold at peak spinal flexion.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-faults">Common Faults to Avoid</span>
+                    Moving solely from the neck/lower back rather than articulating each individual vertebra sequentially.
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">3. Thread the Needle</h3>
+                <span class="prescription">1 Min (30s Left / 30s Right)</span>
+            </div>
+            <div class="target-bar">🎯 Target: Thoracic Spine Rotation & Rear Shoulder Mobility</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Position</span>
+                    All-fours stance. Keep pelvis level and knees anchored evenly into the mat.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Reach right arm under chest, sliding back of hand along the floor until right shoulder and temple rest gently on the mat. Press left palm into floor to gently leverage thoracic rotation.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing Pattern</span>
+                    Inhale to fill the back of the lungs; exhale to sink 2mm deeper into the twist.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-faults">Common Faults to Avoid</span>
+                    Shifting hips sideways; collapsing neck weight without shoulder support.
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">4. Downward Dog with Pedaling Feet</h3>
+                <span class="prescription">1 Min Continuous</span>
+            </div>
+            <div class="target-bar">🎯 Target: Posterior Chain, Gastroc/Soleus Calves, Serratus Anterior</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Position</span>
+                    Hands shoulder-width, feet hip-width. Form an inverted "V" shape by driving hips up and back.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Press actively through index knuckles to protect wrists. Alternate bending one knee while driving the opposite heel firmly toward the floor (hold each heel down 3 seconds).
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing Pattern</span>
+                    Slow rhythmic breaths, drawing lower belly inward on each exhale.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-faults">Common Faults to Avoid</span>
+                    Rounding the lower back (bend knees slightly if hamstrings are tight to preserve flat lumbar spine).
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">5. World's Greatest Stretch (Low Lunge + T-Spine Rotation)</h3>
+                <span class="prescription">1 Min (30s / side)</span>
+            </div>
+            <div class="target-bar">🎯 Target: Hip Flexors, Adductors, Thoracic Spine & Chest Expansion</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Position</span>
+                    Deep runner's lunge with left foot forward outside left hand. Back leg straight or knee lightly down.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Drop left elbow inside left instep for 2 seconds. Then rotate left arm straight up to the ceiling, following fingertips with your eyes. Switch sides at 30s.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing Pattern</span>
+                    Exhale as you rotate open towards the ceiling; inhale as you return down to instep.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-faults">Common Faults to Avoid</span>
+                    Letting the front knee flare wildly out of control; overarching lower spine instead of twisting mid-back.
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 1: Lower Body -->
+        <div class="section-header">
+            <span class="phase-badge phase-1">Phase 1: Lower Body Power (12 Mins)</span>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">Goblet Squat</h3>
+                <span class="prescription">3 Sets × 10–12 Reps • Rest: 60s</span>
+            </div>
+            <div class="target-bar">🎯 Target: Quadriceps, Gluteus Maximus, Anterior Core Bracing</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Stance</span>
+                    Feet slightly wider than shoulder-width, toes flared 15–30°. Hold one dumbbell vertically with palms cupping upper bell against mid-sternum. Elbows pointing down.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Initiate by breaking at hips and knees simultaneously. Drive knees out in line with second toes. Descend until hip crease is parallel to knee caps. Drive floor away through whole foot.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-tempo">Prescribed Tempo</span>
+                    <strong>3-1-1-0:</strong> 3 seconds controlled descent → 1 second pause in the hole (no bouncing) → 1 second explosive drive up → 0 second rest at top.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing & Faults</span>
+                    <strong>Breath:</strong> Deep belly inhale & brace before descent; sharp exhale past sticking point on way up.<br>
+                    <strong>Avoid:</strong> Knees caving inward (valgus); heels lifting; dumbbell drifting away from chest.
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">Dumbbell Reverse Lunges</h3>
+                <span class="prescription">3 Sets × 10–12 Reps/Leg • Rest: 60s</span>
+            </div>
+            <div class="target-bar">🎯 Target: Unilateral Quad Strength, Glute Medius Stability, Ankle Control</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Grip</span>
+                    Stand tall, feet hip-width apart. Hold a dumbbell in each hand with neutral grip, arms fully extended at sides. Retract shoulder blades slightly.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Step back 2.5 to 3 feet with left leg. Lower hips vertically until both front and rear knees reach 90° angles (rear knee hovering 1 inch off floor). Drive through front heel to return.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-tempo">Prescribed Tempo</span>
+                    <strong>2-1-1-0:</strong> 2 seconds back/down → 1 second hold at 90° → 1 second drive to standing. Complete all reps on one leg before switching.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing & Faults</span>
+                    <strong>Breath:</strong> Inhale stepping back; exhale driving through front heel to stand.<br>
+                    <strong>Avoid:</strong> Front knee shooting forward past toes; torso leaning excessively forward; slamming rear knee into floor.
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">Romanian Deadlift (RDL)</h3>
+                <span class="prescription">3 Sets × 10–12 Reps • Rest: 60s</span>
+            </div>
+            <div class="target-bar">🎯 Target: Hamstrings (Eccentric Loading), Glute-Hamstring Tie-in, Spinal Erectors</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Grip</span>
+                    Feet hip-width apart, toes pointing straight forward. Overhand grip holding dumbbells across front of thighs. Shoulders pulled down and locked into back pockets.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Maintain a 15° soft bend in knees (knees stay fixed). Push hips straight back towards the wall behind you. Let weights trace down along the front of shins until mid-shin / hamstring stretch. Squeeze glutes to stand.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-tempo">Prescribed Tempo</span>
+                    <strong>3-1-1-0:</strong> 3 seconds slow hinge back → 1 second isometric hamstring stretch at bottom → 1 second glute contraction back to vertical.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing & Faults</span>
+                    <strong>Breath:</strong> Inhale at top, brace core through hinge, exhale locking hips out.<br>
+                    <strong>Avoid:</strong> Rounding lumbar spine; squatting down by bending knees further; letting dumbbells drift forward away from legs.
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 2: Upper Push -->
+        <div class="section-header">
+            <span class="phase-badge phase-2">Phase 2: Upper Body Push (10 Mins)</span>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">Standing Overhead Press</h3>
+                <span class="prescription">3 Sets × 10–12 Reps • Rest: 60s</span>
+            </div>
+            <div class="target-bar">🎯 Target: Anterior & Lateral Deltoids, Clavicular Pectoralis, Core Stability</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Stance</span>
+                    Feet hip-width, glutes squeezed tight, abs braced. Hold dumbbells at shoulder height with elbows angled 30° forward in the scapular plane (not flared 90°).
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Press straight overhead in a slight arc until biceps are aligned with ears at full lockout. Lower dumbbells under strict control back to collarbone level.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-tempo">Prescribed Tempo</span>
+                    <strong>2-0-1-0:</strong> 1 second vertical press → 0 second pause → 2 seconds controlled lowering to shoulders.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing & Faults</span>
+                    <strong>Breath:</strong> Inhale before pressing; exhale through top half of press.<br>
+                    <strong>Avoid:</strong> Leaning back into lumbar hyperextension; flaring elbows wide; using leg bounce (keep it strict).
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">Dumbbell Floor Press</h3>
+                <span class="prescription">3 Sets × 10–12 Reps • Rest: 60s</span>
+            </div>
+            <div class="target-bar">🎯 Target: Pectoralis Major, Anterior Deltoids, Triceps Brachii</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Position</span>
+                    Lie flat on back on the mat. Bend knees to 90° with feet flat on floor. Hold dumbbells with elbows at a 45° arrow angle relative to torso.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Press dumbbells upward until arms are straight, focusing on squeezing chest at top. Lower slowly until back of upper arms lightly touch the floor (zero bounce).
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-tempo">Prescribed Tempo</span>
+                    <strong>3-1-1-0:</strong> 3 seconds lowering → 1 second dead stop on floor (deloads shoulders) → 1 second explosive chest drive.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing & Faults</span>
+                    <strong>Breath:</strong> Inhale lowering dumbbells; exhale forcefully on chest press.<br>
+                    <strong>Avoid:</strong> Flaring elbows out to 90° (T-shape); bouncing triceps violently off hard floor; arching lower back excessively.
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">Bent-Over Tricep Kickbacks</h3>
+                <span class="prescription">3 Sets × 10–12 Reps • Rest: 45s</span>
+            </div>
+            <div class="target-bar">🎯 Target: Triceps Brachii (Peak Contraction of Long and Lateral Heads)</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Stance</span>
+                    Hinge torso forward to 45° with flat back. Pull elbows up and pin upper arms parallel to your ribcage.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Keeping upper arms 100% stationary, extend forearms backward until arms are completely locked out straight. Squeeze triceps hard for 1 full second at the apex.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-tempo">Prescribed Tempo</span>
+                    <strong>2-1-1-0:</strong> 1 second extension → 1 second hard isometric squeeze → 2 seconds return to 90° elbow bend.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing & Faults</span>
+                    <strong>Breath:</strong> Inhale bending elbows; exhale extending arm back.<br>
+                    <strong>Avoid:</strong> Swinging elbows forward like a pendulum; rounding back; using excessive weight that limits full lockout.
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 3: Upper Pull -->
+        <div class="section-header">
+            <span class="phase-badge phase-3">Phase 3: Upper Body Pull (10 Mins)</span>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">Single-Arm Dumbbell Row</h3>
+                <span class="prescription">3 Sets × 10–12 Reps/Arm • Rest: 60s</span>
+            </div>
+            <div class="target-bar">🎯 Target: Latissimus Dorsi, Rhomboids, Middle Trapezius, Biceps</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Stance</span>
+                    Staggered stance (or one hand on bench/chair for support). Torso angled at 45° with a flat, rigid spine. Hold dumbbell with arm hanging straight down.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Initiate by driving elbow backward along an arc toward your hip pocket (not straight up to chest). Retract shoulder blade at top. Lower with full stretch at bottom.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-tempo">Prescribed Tempo</span>
+                    <strong>2-1-1-0:</strong> 1 second pull to hip → 1 second isometric squeeze of lat → 2 seconds lowering to full lat stretch.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing & Faults</span>
+                    <strong>Breath:</strong> Inhale at full bottom extension; exhale while driving elbow back.<br>
+                    <strong>Avoid:</strong> Rotating torso or jerking shoulder to cheat weight up; pulling dumbbell into armpit using only biceps.
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">Standing Dumbbell Bicep Curls</h3>
+                <span class="prescription">3 Sets × 10–12 Reps • Rest: 45s</span>
+            </div>
+            <div class="target-bar">🎯 Target: Biceps Brachii (Short/Long Heads), Brachialis, Grip Strength</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Stance</span>
+                    Stand with feet hip-width. Squeeze glutes to eliminate body swing. Dumbbells at sides, palms facing forward (or starting neutral, supinating as you curl).
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Pin elbows against ribcage. Curl weights up without letting elbows drift forward. Squeeze biceps forcefully at peak height (wrist aligned with front delt).
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-tempo">Prescribed Tempo</span>
+                    <strong>3-0-1-0:</strong> 1 second curl up → 0 second pause → 3 seconds strict negative descent.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing & Faults</span>
+                    <strong>Breath:</strong> Exhale curling up; inhale slowly lowering down.<br>
+                    <strong>Avoid:</strong> Rocking torso backward; allowing elbows to flare out or swing forward to take tension off biceps.
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">Bent-Over Reverse Flys</h3>
+                <span class="prescription">3 Sets × 10–12 Reps • Rest: 45s</span>
+            </div>
+            <div class="target-bar">🎯 Target: Posterior Deltoids, Rhomboids, Infraspinatus (Posture Fix)</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Grip</span>
+                    Use light dumbbells. Hinge forward at hips until torso is nearly parallel to floor. Maintain flat back. Arms hang down with elbows slightly unlocked (micro-bend).
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Lead with elbows and sweep arms out wide to the sides in a reverse hugging motion until weights are level with shoulders. Pinch upper shoulder blades together.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-tempo">Prescribed Tempo</span>
+                    <strong>2-1-1-0:</strong> 1 second lateral raise → 1 second hold at peak contraction → 2 seconds controlled return.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing & Faults</span>
+                    <strong>Breath:</strong> Exhale sweeping arms out wide; inhale returning down.<br>
+                    <strong>Avoid:</strong> Shrugging upper traps; using momentum to bounce weights; straightening arms into rigid lockout.
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 4: Finisher -->
+        <div class="section-header">
+            <span class="phase-badge phase-4">Phase 4: Finisher & Decompression (8 Mins)</span>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">Dumbbell Thrusters (Conditioning Finisher)</h3>
+                <span class="prescription">2 Min AMRAP (As Many Reps As Possible)</span>
+            </div>
+            <div class="target-bar">🎯 Target: Full-Body Power, Kinetic Leg-to-Arm Energy Transfer, VO2 Max</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">Setup & Position</span>
+                    Racked position: Dumbbells resting on front deltoids with elbows high. Feet shoulder-width apart.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-execution">Prescriptive Execution</span>
+                    Drop into full squat depth. Drive explosively out of the bottom with leg power, transferring momentum directly into a fluid overhead dumbbell press.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-tempo">Prescribed Rhythm</span>
+                    Fluid continuous cycle. Catch dumbbells at shoulders as you simultaneously descend into the next squat.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-faults">Common Faults to Avoid</span>
+                    Pausing at shoulders between squat and press (make it one continuous movement); pressing before hips have fully extended.
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="card-top">
+                <h3 class="exercise-title">Decompression Static Cool-Down</h3>
+                <span class="prescription">6 Mins Total (45–60s Per Hold)</span>
+            </div>
+            <div class="target-bar">🎯 Target: Heart Rate Recovery, Fascial Lengthening, Parasympathetic State</div>
+            <div class="grid-cues">
+                <div class="cue-box">
+                    <span class="cue-label label-setup">1. Pigeon Pose (Glutes/Piriformis)</span>
+                    Right shin forward across mat, left leg extended straight back. Lower chest down toward mat. Hold 60s per side.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-setup">2. Doorway / Wall Chest Stretch</span>
+                    Forearm against wall at 90°, step forward with same-side foot and rotate torso away to stretch pec minor and anterior delt. 45s per side.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-setup">3. Seated Single-Leg Hamstring Fold</span>
+                    Extend one leg straight, hinge at hips reaching for toes with flat back. Hold 45s per leg.
+                </div>
+                <div class="cue-box">
+                    <span class="cue-label label-breath">Breathing Protocol</span>
+                    Deep 4-second nasal inhale, 6-second relaxed exhale through mouth. Target bringing heart rate below 100 BPM.
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            Built for HonWeng • Served from Raspberry Pi via Cloudflare Tunnel 🦊
+        </footer>
+    </div>
+</body>
+</html>
