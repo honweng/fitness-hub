@@ -222,13 +222,16 @@
         }
 
         footer {
+            max-width: 42rem;
+            margin: 2.5rem auto 0;
+            padding: 1rem 0.75rem 0;
+            border-top: 1px solid var(--border);
             text-align: center;
             color: var(--text-muted);
             font-size: 0.85rem;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
+            line-height: 1.8;
         }
+        footer a { color: #38bdf8; text-decoration: none; }
 
         /* View Switching Logic */
         .workout-view { display: none; }
@@ -1070,9 +1073,7 @@
             <a href="../index.html" class="nav-btn">🏠 Fitness Hub Portal</a>
         </div>
 
-        <footer>
-            Maintained by Kaia 🦊
-        </footer>
+        <footer class="brand-footer">© 2026 HonWeng · Maintained by Kaia 🦊 · <a href="mailto:me@honweng.com">Contact</a></footer>
     </div>
 
     <!-- JavaScript Interactive Switcher -->
